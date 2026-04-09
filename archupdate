@@ -1,0 +1,10 @@
+sudo pacman -Syu --noconfirm
+yay -Sua --noconfirm
+flatpak update -y
+flatpak uninstall --unused -y
+
+huerfanos=$(pacman -Qtdq)
+
+if [ -n "$huerfanos" ]; then
+    sudo pacman -Rs $huerfanos
+fi
