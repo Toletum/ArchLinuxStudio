@@ -5,8 +5,14 @@ iwctl
 station wlan0 connect toletum_5
 ```
 
+## Update All
+```bash
+pacman -Syu --noconfirm
+```
+
 ## Realtime
 ```bash
+pacman -Syu --noconfirm
 pacman -S linux-rt linux-rt-headers
 pacman -S realtime-privileges
 grub-mkconfig -o /boot/grub/grub.cfg
@@ -69,7 +75,7 @@ pacman -S pipewire pipewire-pulse pipewire-alsa pipewire-jack wireplumber
 
 ## Create user
 ```bash
-useradd -m -G wheel,audio,optical,storage,video,realtime -s /bin/bash toletum
+useradd -m -U -G wheel,audio,optical,storage,video,realtime -s /bin/bash toletum
 ```
 
 ```bash
