@@ -54,6 +54,13 @@ sysctl --system
 pacman -S --needed base-devel git
 ```
 
+```bash
+git clone https://aur.archlinux.org/yay-bin.git
+
+cd yay-bin
+makepkg -si
+```
+
 ## Pipewire
 ```bash
 pacman -S pipewire pipewire-pulse pipewire-alsa pipewire-jack wireplumber
@@ -88,6 +95,11 @@ systemctl --user enable --now pipewire.service pipewire-pulse.service wireplumbe
 ```
 
 # FlatPak Apps
+
+```bash
+sudo pacman -S flatpak
+```
+
 ```bash
 flatpak install flathub ar.com.tuxguitar.TuxGuitar -y
 flatpak install flathub com.giadamusic.Giada -y
