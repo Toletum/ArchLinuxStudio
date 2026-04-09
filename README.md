@@ -49,11 +49,12 @@ systemctl enable --now zram.service
 sysctl --system
 ```
 
-## Yay
+## System Apps
 ```bash
-pacman -S --needed base-devel git
+pacman -S --needed base-devel git flatpak
 ```
 
+## Yay
 ```bash
 git clone https://aur.archlinux.org/yay-bin.git
 
@@ -96,9 +97,35 @@ systemctl --user enable --now pipewire.service pipewire-pulse.service wireplumbe
 
 # FlatPak Apps
 
-```bash
-sudo pacman -S flatpak
-```
+| Aplicación | ID de Aplicación | Descripción |
+| :--- | :--- | :--- |
+| **TuxGuitar** | `ar.com.tuxguitar.TuxGuitar` | Editor y reproductor multipista de partituras y tablaturas. |
+| **Giada** | `com.giadamusic.Giada` | Herramienta minimalista para loop station y secuencer de audio. |
+| **Flatseal** | `com.github.tchx84.Flatseal` | Gestor gráfico de permisos para aplicaciones Flatpak. |
+| **VMPK** | `net.sourceforge.VMPK` | Piano virtual MIDI para eventos de red o dispositivos externos. |
+| **Audacity** | `org.audacityteam.Audacity` | Editor de audio profesional de código abierto y grabación. |
+| **Calf** | `org.freedesktop.LinuxAudio.Plugins.Calf` | Suite de plugins de efectos y procesamiento de audio avanzado. |
+| **Guitarix LV2** | `org.freedesktop.LinuxAudio.Plugins.Guitarix` | Amplificador de guitarra virtual en formato de plugin LV2. |
+| **LSP** | `org.freedesktop.LinuxAudio.Plugins.LSP` | Plugins de audio de alta fidelidad para mezcla y masterización. |
+| **Ratatouille** | `org.freedesktop.LinuxAudio.Plugins.Ratatouille` | Simulador de amplificadores basado en modelos neuronales. |
+| **Surge Synthesizer** | `org.freedesktop.LinuxAudio.Plugins.Surge` | Potente sintetizador híbrido de código abierto. |
+| **sfizz** | `org.freedesktop.LinuxAudio.Plugins.sfizz` | Reproductor de muestras compatible con el formato SFZ. |
+| **SWH** | `org.freedesktop.LinuxAudio.Plugins.swh` | Colección clásica de plugins de efectos de audio LADSPA. |
+| **x42Plugins** | `org.freedesktop.LinuxAudio.Plugins.x42Plugins` | Conjunto de utilidades y medidores de audio profesional. |
+| **GIMP** | `org.gimp.GIMP` | Editor avanzado de imágenes y manipulación fotográfica. |
+| **G'MIC** | `org.gimp.GIMP.Plugin.GMic` | Framework completo con cientos de filtros para procesado de imagen. |
+| **guitarix** | `org.guitarix.Guitarix` | Amplificador de guitarra digital para sistemas Linux. |
+| **Hydrogen** | `org.hydrogenmusic.Hydrogen` | Caja de ritmos avanzada basada en patrones. |
+| **Firefox** | `org.mozilla.firefox` | Navegador web enfocado en la privacidad y estándares abiertos. |
+| **Qsynth** | `org.rncbc.qsynth` | Interfaz gráfica para el sintetizador de software FluidSynth. |
+| **Shotcut** | `org.shotcut.Shotcut` | Editor de vídeo multiplataforma gratuito y de código abierto. |
+| **Surge XT** | `org.surge_synth_team.surge-xt` | Versión mejorada y moderna del sintetizador Surge. |
+| **VLC** | `org.videolan.VLC` | Reproductor multimedia universal compatible con casi cualquier formato. |
+| **Wine** | `org.winehq.Wine` | Capa de compatibilidad para ejecutar software de Windows en Linux. |
+| **gecko-wow64** | `org.winehq.Wine.gecko-wow64` | Motor de renderizado web para aplicaciones Wine de 64 bits. |
+| **mono-wow64** | `org.winehq.Wine.mono-wow64` | Implementación de .NET para ejecutar aplicaciones de Windows en Wine. |
+| **Carla** | `studio.kx.carla` | Gestor de plugins de audio y rack de efectos modular. |
+| **MuseScore** | `org.musescore.MuseScore` | Software profesional de notación musical y creación de partituras. |
 
 ```bash
 flatpak install flathub ar.com.tuxguitar.TuxGuitar -y
@@ -131,3 +158,14 @@ flatpak install flathub org.musescore.MuseScore -y
 ```
 
 # AppImages Apps
+| Aplicación | Descripción |
+| :--- | :--- |
+| **AnthemScore** | Software de transcripción de audio a partituras basado en **IA**. |
+| **LMMS** | Estación de trabajo de audio digital (**DAW**) para producción musical. |
+| **MusE** | Secuenciador de audio y **MIDI** con capacidades de grabación. |
+
+```bash
+python -m venv venv
+./venv/bin/pip install -r requirements.txt
+./update_gh.sh
+```
