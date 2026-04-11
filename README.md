@@ -163,6 +163,13 @@ flatpak install flathub studio.kx.carla -y
 flatpak install flathub org.musescore.MuseScore -y
 ```
 
+# YAY
+| Aplicación | Descripción |
+| :--- | :--- |
+| **Appimagelauncher** | Herramienta que integra archivos AppImage |
+| **Iwgtk** | gestionar redes Wi-Fi |
+
+
 # AppImages Apps
 | Aplicación | Descripción |
 | :--- | :--- |
