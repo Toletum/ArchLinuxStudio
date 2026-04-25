@@ -10,10 +10,13 @@ station wlan0 connect toletum_5
 pacman -Syu --noconfirm
 ```
 
-## Realtime
+## Realtime o Zed
 ```bash
 pacman -Syu --noconfirm
-pacman -S linux-rt linux-rt-headers
+
+# pacman -S linux-rt linux-rt-headers 
+# pacman -S linux-zen linux-zen-headers
+
 pacman -S realtime-privileges
 grub-mkconfig -o /boot/grub/grub.cfg
 
@@ -132,6 +135,7 @@ systemctl --user enable --now pipewire.service pipewire-pulse.service wireplumbe
 | **mono-wow64** | `org.winehq.Wine.mono-wow64` | Implementación de .NET para ejecutar aplicaciones de Windows en Wine. |
 | **Carla** | `studio.kx.carla` | Gestor de plugins de audio y rack de efectos modular. |
 | **MuseScore** | `org.musescore.MuseScore` | Software profesional de notación musical y creación de partituras. |
+| **Reaper** | `fm.reaper.Reaper` | DAW |
 
 ```bash
 flatpak install flathub ar.com.tuxguitar.TuxGuitar -y
@@ -161,6 +165,7 @@ flatpak install flathub org.winehq.Wine.gecko-wow64 -y
 flatpak install flathub org.winehq.Wine.mono-wow64 -y
 flatpak install flathub studio.kx.carla -y
 flatpak install flathub org.musescore.MuseScore -y
+flatpak install flathub fm.reaper.Reaper -y
 ```
 
 # YAY
