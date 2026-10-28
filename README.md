@@ -15,7 +15,7 @@ pacman -Syu --noconfirm
 pacman -Syu --noconfirm
 
 # pacman -S linux-rt linux-rt-headers 
-# pacman -S linux-zen linux-zen-headers
+#
 
 pacman -S realtime-privileges
 grub-mkconfig -o /boot/grub/grub.cfg
@@ -78,7 +78,7 @@ pacman -S pipewire pipewire-pulse pipewire-alsa pipewire-jack wireplumber
 
 ## Create user
 ```bash
-useradd -m -U -G wheel,audio,optical,storage,video,realtime -s /bin/bash toletum
+useradd -m -U -G wheel,audio,optical,storage,video -s /bin/bash toletum
 ```
 
 ```bash
@@ -89,14 +89,16 @@ visudo
 
 ## RT
 ```bash
-cat <<EOF > /etc/security/limits.d/99-audio.conf 
-@realtime - rtprio 98
-@realtime - memlock unlimited
-EOF
+sudo pacman -S rtkit
+systemctl enable --now rtkit-daemon
 
-cat <<EOF > /etc/security/limits.d/99-realtime-privileges.conf 
-@realtime - nice -11
-EOF
+
+cat /etc/security/limits.conf
+
+@wheel           -       nice            -10
+@audio   -   rtprio   99
+@audio   -   memlock  unlimited
+
 ```
 
 # User
@@ -186,4 +188,37 @@ flatpak install flathub fm.reaper.Reaper -y
 python -m venv venv
 ./venv/bin/pip install -r requirements.txt
 ./update_gh.sh
+```
+
+# Bluetooth
+```bash
+sudo pacman -S bluez bluez-utils bluedevil
+```
+
+# Pipewire Virtual Sink
+~/.config/pipewire/pipewire.conf.d/virtual-sink.conf 
+
+```
+context.modules = [
+    {
+        name = libpipewire-module-loopback
+        args = {
+            node.description = "Virtual Sink"
+
+            capture.props = {
+                node.name = "virtual_sink"
+                node.description = "Virtual Sink Input"
+                media.class = "Audio/Sink"
+                audio.position = [ FL FR ]
+            }
+
+            playback.props = {
+                node.name = "virtual_sink_out"
+                node.description = "Virtual Sink Output"
+                audio.position = [ FL FR ]
+                node.passive = true
+            }
+        }
+    }
+]
 ```
